@@ -1,7 +1,5 @@
 import Emp from "../model/emp.model.js";
 
-
-
 export async function create(req,res){
     try {
         const {username,empname,email,role,salary} = req.body;
@@ -102,6 +100,7 @@ export async function remove(req,res){
         await Emp.findByIdAndDelete({_id:id});
 
         res.status(201).json({
+            id,
             message  : `deleted successfully..`,
         })
     } catch (error) {
